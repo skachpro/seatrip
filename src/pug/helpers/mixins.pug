@@ -1,0 +1,69 @@
+//- Mixins
+mixin heading_paragraph($title = "", $paragraph = "", $heading_lvl = "h1", $side = "left", $class_btsp ="",$class_heading = "",$class_paragraph = "")
+    if $side == 'left'
+        .heading_paragraph.position-relative.text-start 
+            #{$heading_lvl}(class=$class_btsp+' heading text-uppercase fw-normal '+$class_heading) !{$title}
+            p(class=$class_btsp+" paragraph fst-italic position-relative "+$class_paragraph) !{$paragraph}
+    else if $side == 'center'
+        .heading_paragraph.position-relative.text-center
+            #{$heading_lvl}(class=$class_btsp+' heading text-uppercase fw-normal '+$class_heading) !{$title}
+            p(class=$class_btsp+" paragraph fst-italic position-relative "+$class_paragraph) !{$paragraph}
+    else 
+        .heading_paragraph.position-relative.text-end
+            #{$heading_lvl}(class=$class_btsp+' heading text-uppercase fw-normal '+$class_heading) !{$title}
+            p(class=$class_btsp+" paragraph fst-italic position-relative "+$class_paragraph) !{$paragraph}
+
+mixin card($path_to_img="",$short='',$price='',$about='',$active='inactive')
+    if $active == "inactive"
+        figure.text-center.figure.abc-card
+            img.m-auto.text-center(src=""+$path_to_img, alt="Людина на волосипеді")
+            figcaption.figure-caption.abc-card-caption
+                p.abc-card-caption__short #{$short}
+                p.price.abc-card-caption__price #{$price}
+                p.abc-card-caption__about #{$about}
+    else
+        figure.text-center.figure.abc-card.active
+            img.abc-card__active-badge(src="../img/active.webp", alt="")
+            img.m-auto.text-center(src=""+$path_to_img, alt="Людина на волосипеді")
+            figcaption.figure-caption.abc-card-caption
+                p.price.abc-card-caption__short #{$short}
+                p.price.abc-card-caption__price #{$price}
+                p.price.abc-card-caption__about #{$about}
+        
+mixin ylw-btn($text="детальніше",$btsp_class="", $custom_class="")
+    a(class=$btsp_class+' bg-warning rounded-5 button fs-6 button-yelw-txt-style m-auto text-center text-uppercase '+$custom_class href="#") #{$text}
+
+mixin trip_card($img_path="",$name="",$about="",$price="",$special="",$col_btsp="",$figure_btsp="",figure_class="",figcaption_btsp="",figcaption_class="",$name_btsp="",$about_btsp="",$price_btsp="")
+    if $special == ""
+        div(class="col "+$col_btsp+" trip-card ") 
+            figure(class=$figure_btsp+' position-relative trip-card-figure '+figure_class)
+                img.w-100(src=""+$img_path, alt="")
+                figcaption(class=figcaption_btsp+' p-4 trip-card-figcaption '+figcaption_class)
+                    p(class=$name_btsp+' fs-5 trip-card-name ') #{$name}
+                    p(class=$about_btsp+' trip-card-about ') #{$about}
+                    .df.justify-content-between.price_buy 
+                        span(class=$price_btsp+" price trip-card-price ") #{$price}
+                        span(class='text-warning price fs-6 trip-card-buy')
+    else 
+        div(class="col "+$col_btsp+" trip-card") 
+            figure(class=$figure_btsp+'position-relative trip-card-figure active'+figure_class)
+                img.abc-card__active-badge(src="../img/active.webp", alt="")
+                img.w-100(src=""+$img_path, alt="")
+                figcaption(class=figcaption_btsp+' p-4 trip-card-figcaption '+figcaption_class)
+                    p(class=$name_btsp+' fs-5 trip-card-name ') #{$name}
+                    p(class=$about_btsp+' text-black-50 trip-card-about ') #{$about}
+                    .d-flex.align-items-center.justify-content-between.price_buy 
+                        span(class=$price_btsp+" price trip-card-price ") #{$price}
+                        a(class='text-warning text-decoration-none fs-6 trip-card-buy' href="#") замовити
+
+mixin download($bg_photo="",$file_name="",$file_size="",$text="")
+    div(class="col-lg-3 col-md-3 dop-info-files flex-grow-0")
+        figure(class="dop-info-figure p-3 pt-4 pb-5 text-light "+$bg_photo)
+            .d-flex.gap-3.w-100.dop-info-file-info
+                img(src="img/file-icon.webp", alt="")
+                .dop-info-file-info-parametrs
+                    p.fs-5.my-0.mb-1.dop-info-file-info-parametrs_name-file.mb-0.lh-sm  !{$file_name}
+                    span.d-inline-block.text-white-50.dop-info-file-info-parametrs_file-size.mb-1 Розмір файла: #{file_size}
+            figcaption.dop-info-figcaption 
+                p.mb-4.dop-info-figcaption-text #{$text}
+                a(class='text-warning text-uppercase text-decoration-none rounded-5 py-2 pe-3 position-relative dop-info-figcaption-download-button ' href="#") скачати

@@ -1,0 +1,107 @@
+//- Homepage
+extends templates/layout 
+
+block seo 
+    //- SEO content
+
+block content
+                .container
+                    .row
+                        .col
+                            .container
+                                .row
+                                    .col-lg-3
+                                        .about_us
+                                            +heading_paragraph("про нашу<br>компанію","Наша компанія пропонує ряд цікавих-розважальних послуг, які принесуть вам ряд вражень!","h2","left","","primary-heading","")
+                                            //-a.fs-6.rounded-5.bg-warning.button.button-yelw-txt-style.m-auto.text-center.text-uppercase(href="#") детальніше
+                                            +ylw-btn("детальніше","","")
+                                            span.attention * - зверніть увагу, зміна ціни може залежати від курсу долара.
+                                    .col-lg-3
+                                        +card("img/bike.webp",'Тур на велосипедах','335 грн*',"Подорожуючи  на велосипеді, ви поринете в атмосферу мальовничих гір, чарівнмх краєвидів та шалених пригод.")
+                                    .col-lg-3
+                                        +card("img/circle.webp",'Екскурсія на острів','500 грн*',"Подорож на острів занурить Вас у незабутнні пригоди. Неймовірна краса  у будь-яку пору року .","active")
+                                    .col-lg-3
+                                        +card("img/message.webp",'Особливе замовлення','250 грн*',"Обираючи цю подорож, Ви самостійно робите її незабутнбою та не схожою на будь-які інші. ","active")
+                    .row.p-0.all-plans-row 
+                        .col-lg-3.p-0.m-0
+                        .col-lg-9.p-0.m-0.text-center
+                            .all-plans
+                                p.all-plans__text дивитись усі плани 
+                                img.all-plans__img(src="img/arrow_icon.webp", alt="") 
+                    .row.hr-row 
+                        .col
+                            hr
+
+                .container.mb-5  
+                    .row.phuket
+                        .col-lg-4.p-0
+                            img.w-full.phuket-photo(class='' src="../img/phuket.jpg", alt="Пхукет фото пейзажу")
+                        .col.p-0.m-0
+                            .container  
+                                .row 
+                                    .col 
+                                        h2.phuket-heading.fw-normal.text-uppercase Дивовижний безлюдний острів, який зводить людей з розуму
+                                .row 
+                                    .col.p-0.m-0
+                                        .container
+                                            .row.gap-3
+                                                .col-lg-12.col-xl-8.p-0.m-0
+                                                    .container 
+                                                        .row.p-0.m-0 
+                                                            .col.p-0.m-0
+                                                                p.phuket-about.fst-italic Пхукет - курортно-туристична Мекка Таїланду. Білосніжний пісок, і бірюзове море, і мальовничі скелі, а на них же, трохи вище - буйна тропічна рослинність. Все це можна побачити на власні очі.
+
+                                                                .d-flex.flex-grow-0.flex-wrap.p-0.m-0.position-relative.gap-3
+                                                                    //-a.bg-warning.rounded-5.button.fs-6.button-yelw-txt-style.m-auto.text-center.text-uppercase.phuket-button(href="#") замовити тур
+                                                                    +ylw-btn("замовити тур","flex-md-grow-0 flex-grow-1 ","phuket-button")
+                                                                    a(href="#" class="btn active rounded-5 flex-md-grow-0 flex-grow-1 d-inline-block text-uppercase fs-6 button blue-border-btn " role="button" data-bs-toggle="button" aria-pressed="true") детальніше
+                                                .col
+                                                    figure.figure.text-center.phuket-figure.w-100
+                                                        figcaption.figcaption.phuket-figcaption
+                                                            p.price.phuket-price 575 грн./день
+                                                            p.price.text-black-50.phuket-about В дану вартість входить обслуговування персоналу, вечеря і захоплюючі історії.
+                .wave
+                    .container.p-0 
+                        .row.m-auto.flex-wrap.gap-5
+                            .col
+                                +heading_paragraph("СПІЙМАЙ ХВИЛЮ<span class='d-block'>ЖИВИ ЯСКРАВО!</span>","Полюбляєш екстрим та пригоди? Тоді тобі точно до нас! Мрієш стати на сапборд, але ніяк не міг наважитсь? Наші досвдчені інструктори навчать тебе вміло «піймати хвилі» та відчути себе справжнім сьорфером!","h2","left",''," text-light mb-4 fs-1 wave-heading","fs-6 text-light wave-paragraph")
+                                +ylw-btn("детальніше","","phuket-button")
+                            .col.p-0 
+                                .review.text-light.m-auto 
+                                    .citata-icon.mb-3.text-center 
+                                        svg 
+                                            use(xlink:href="#citata")
+                                    p.fst-italic.fs-6.review-text Чудова туристична фірма, що повністю виправдала мої очікування від подорожі. Я був приємно вражений екскурсіями, що для мене підібрали, працюють спражні професіонали своєї справи. 
+
+                                    .review-client.text-center 
+                                        p.fs-6.mb-0.user-name Олег Набережний
+                                        p.text-white-50.user-status клієнт
+                                        .user-avatar
+                                            img.rounded-circle.user-avatar-img(src="img/oleg_naberezniy.jpg", alt="Клієнт Олег набережний")
+                .container.mb-5.special-for-you 
+                    .row 
+                        //-heading_paragraph($title = "", $paragraph = "", $heading_lvl = "h1", $side = "left", $class_btsp ="",$class_heading = "",$class_paragraph = "")
+                        +heading_paragraph("Спеціальні пропозиції тижня","Гарячі праозиції, по-швидше обирай і поїхали!","h2","center","text-center text-dark"," mb-3 ","mb-4 d-inline-block")
+                        //-+trip_card($img_path="",$name="",$about="",$price="",$special="",$col_btsp="",$figure_bts="",figure_class="",figcaption_btsp="",figcaption_class="",$name_btsp="",$about_btsp="",$price_btsp="")
+                    .row.gap-6    
+                        +trip_card("img/romantic_trip.jpg","Романтична подорож на 2","Подорож у найромантичніші куточки світу, занурить вас у дивовижні пейзажі природи.","2599 грн.","active","","","","","","","","")
+                        +trip_card("img/velotour.jpg","Велотур","Бажаєте прокататись з вітерцем, та ще й з критим краєвидом довкола? Тоді швидше замовляй велотур!","555 грн.","active","","","","","","","","")
+                        +trip_card("img/on_islands.jpg","На острови!","Хочеш зануритись у тишу, місце де не має натовпу, та панує дмка природа? Тоді вперед за пригодами!","1599 грн.","active","","","","","","","","")
+                        +trip_card("img/surfing.jpg","На острови!","Хочеш зануритись у тишу, місце де не має натовпу, та панує дмка природа? Тоді вперед за пригодами!","999 грн.","active","","","","","","","","")
+                .container 
+                    .row.hr-row 
+                        .col.p-0 
+                            hr
+                .container.dop-info-container
+                    .row.dop-info-row.flex-wrap
+                        .col-lg-3.col-md-3.mb-5.dop-info-heading.flex-grow-0
+                            +heading_paragraph("додаткова<br>інформація","","h3","left","","","d-none")
+                        +download("hotels","Графік роботи<br>готелів.xls","10mb","Розклад роботи усіх наших готелів, можете знайти за цим посиланням. Та додатково завантажити їх фото.")
+                        +download("eat","Інформація про<br>харчування.xls","10mb","У будь-якому нашому турі включені сніданки у вартість. Якщо ж бажаєте замовити додотково, то ознайомтесь з умовами ")
+                        .col-lg-3.col-md-3.flex-grow-0.text-center.position-relative.question
+                            p.fs-5.question-header-text задати питання
+                            p.text-black-50.m-auto.text-center.mb-3.question-main-text Скажіть доброго дня нашому консультанту,і ми з радістю відповімо на Ваші запитання
+                            p.tel.price.position-relative.d-inline-block.question-contact +38 (050) 56 98 511
+                            p.mb-0.fs-4.question-name Анна Миколаївна
+                            p.text-black-50.question-rang консультант
+                            img.rounded-circle.question-img(src="img/anna.jpg", alt="")
