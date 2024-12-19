@@ -23,7 +23,7 @@ mixin card($path_to_img="",$short='',$price='',$about='',$active='inactive')
                 p.abc-card-caption__about #{$about}
     else
         figure.text-center.figure.abc-card.active
-            img.abc-card__active-badge(src="../img/active.webp", alt="")
+            img.abc-card__active-badge(src="img/active.webp", alt="")
             img.m-auto.text-center(src=""+$path_to_img, alt="Людина на волосипеді")
             figcaption.figure-caption.abc-card-caption
                 p.price.abc-card-caption__short #{$short}
