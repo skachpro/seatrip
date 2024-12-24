@@ -15,6 +15,9 @@ h1
     margin-bottom: 12px     
 h2
     font-size: 2.25rem
+
+a
+    display: inline-block
 .price
     font-size: 1.5rem
     color: #0099ff
@@ -34,6 +37,11 @@ h2
 .about_us .button-yelw-txt-style
     margin: 0 !important
     margin-bottom: 20px !important
+.about_us a 
+    width: 100%
+    +media(762)
+        width: min-content
+
 .abc-card
     //background-color: #fff
     position: relative
@@ -42,12 +50,13 @@ h2
     transition: .3s
     &__active-badge
         position: absolute
-        border: 25px solid #26cb15
+        border: 30px solid #26cb15
         width: 0
-        border-bottom: 25px solid transparent
-        border-right: 25px solid transparent
+        border-bottom: 30px solid transparent
+        border-right: 30px solid transparent
         left: 0
         top: 0  
+        z-index: 1
         &::before
             content: ""
             position: absolute
@@ -125,8 +134,10 @@ h2
 .blue-border-btn
     text-transform: uppercase
     color: #0099ff !important
-    border: 2px solid #0099ff !important
+    border: 2px solid rgb(0, 153, 255) !important
     width: 180px !important
+    &:hover 
+        background-color: rgba(0, 153, 255,0.1)
 .wave 
     background: url("../img/spiymay_wave.jpg")
     padding: 50px 0 60px
@@ -149,6 +160,10 @@ h2
         line-height: 1.5rem
         font-weight: 400
         font-family: "PT Sans"
+    & a.phuket-button
+        width: 100%
+        +media(962)
+            width: min-content
 .review
     position: relative
     width: 80%
@@ -241,6 +256,24 @@ h2
                 background: url("../img/cloud-icon.webp")
             &:hover
                 background-color: rgba(255, 223, 141, 0.5)
+.velotour__badge
+    position: absolute
+    width: 61px
+    height: 100%
+    background: #000
+    background-color: #0099ff
+    z-index: 0
+    &::before
+        content: ''
+        position: absolute
+        left: 10px
+        top: 100px
+        width: 40px
+        height: 35px
+        background: url("../img/velik.png")
+        background-size: cover
+        background-repeat: no-repeat
+        z-index: 3
 .question
     &::before 
         content: ''

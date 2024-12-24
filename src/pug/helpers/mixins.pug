@@ -16,6 +16,7 @@ mixin heading_paragraph($title = "", $paragraph = "", $heading_lvl = "h1", $side
 mixin card($path_to_img="",$short='',$price='',$about='',$active='inactive')
     if $active == "inactive"
         figure.text-center.figure.abc-card
+            //-.abc-card__active-badge
             img.m-auto.text-center(src=""+$path_to_img, alt="Людина на волосипеді")
             figcaption.figure-caption.abc-card-caption
                 p.abc-card-caption__short #{$short}
@@ -34,9 +35,9 @@ mixin card($path_to_img="",$short='',$price='',$about='',$active='inactive')
 mixin ylw-btn($text="детальніше",$btsp_class="", $custom_class="")
     a(class=$btsp_class+' bg-warning rounded-5 button fs-6 button-yelw-txt-style m-auto text-center text-uppercase '+$custom_class href="#") #{$text}
 
-mixin trip_card($img_path="",$name="",$about="",$price="",$special="",$col_btsp="",$figure_btsp="",figure_class="",figcaption_btsp="",figcaption_class="",$name_btsp="",$about_btsp="",$price_btsp="")
+mixin trip_card($img_path="",$name="",$about="",$price="",$special="",$col_btsp="",$figure_btsp="",figure_class="",figcaption_btsp="",figcaption_class="",$name_btsp="",$about_btsp="",$price_btsp="",$velotour="no")
     if $special == ""
-        div(class="col "+$col_btsp+" trip-card ") 
+        div(class="col "+$col_btsp+" trip-card col-xl-3 col-lg-4 col-md-6 col-sm-6") 
             figure(class=$figure_btsp+' position-relative trip-card-figure '+figure_class)
                 img.w-100(src=""+$img_path, alt="")
                 figcaption(class=figcaption_btsp+' p-4 trip-card-figcaption '+figcaption_class)
@@ -45,10 +46,10 @@ mixin trip_card($img_path="",$name="",$about="",$price="",$special="",$col_btsp=
                     .df.justify-content-between.price_buy 
                         span(class=$price_btsp+" price trip-card-price ") #{$price}
                         span(class='text-warning price fs-6 trip-card-buy')
-    else 
-        div(class="col "+$col_btsp+" trip-card") 
-            figure(class=$figure_btsp+'position-relative trip-card-figure active'+figure_class)
-                img.abc-card__active-badge(src="../img/active.webp", alt="")
+    else if $special != "" & $velotour == 'no'
+        div(class="col "+$col_btsp+" trip-card col-xl-3 col-lg-4 col-md-6 col-sm-6") 
+            figure(class=$figure_btsp+' position-relative trip-card-figure active '+figure_class)
+                .abc-card__active-badge
                 img.w-100(src=""+$img_path, alt="")
                 figcaption(class=figcaption_btsp+' p-4 trip-card-figcaption '+figcaption_class)
                     p(class=$name_btsp+' fs-5 trip-card-name ') #{$name}
@@ -56,6 +57,21 @@ mixin trip_card($img_path="",$name="",$about="",$price="",$special="",$col_btsp=
                     .d-flex.align-items-center.justify-content-between.price_buy 
                         span(class=$price_btsp+" price trip-card-price ") #{$price}
                         a(class='text-warning text-decoration-none fs-6 trip-card-buy' href="#") замовити
+    else 
+        div(class="col "+$col_btsp+" trip-card col-xl-3 col-lg-4 col-md-6 col-sm-6") 
+            figure(class=$figure_btsp+' position-relative trip-card-figure active '+figure_class)
+                .abc-card__active-badge
+                div.position-relative
+                    .velotour__badge
+                    img.w-100(src=""+$img_path, alt="")
+                figcaption(class=figcaption_btsp+' p-4 trip-card-figcaption '+figcaption_class)
+                    p(class=$name_btsp+' fs-5 trip-card-name ') #{$name}
+                    p(class=$about_btsp+' text-black-50 trip-card-about ') #{$about}
+                    .d-flex.align-items-center.justify-content-between.price_buy 
+                        span(class=$price_btsp+" price trip-card-price ") #{$price}
+                        a(class='text-warning text-decoration-none fs-6 trip-card-buy' href="#") замовити
+
+    
 
 mixin download($bg_photo="",$file_name="",$file_size="",$text="")
     div(class="col dop-info-files flex-grow-0")
