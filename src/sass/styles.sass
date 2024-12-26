@@ -245,9 +245,11 @@ a
 
 .dop-info
     
+    
     &-figure
-        width: 280px
-        height: 280px
+        width: 270px
+        height: 270px
+        flex-grow: 1
         &.hotels
             background: url("../img/bg-hotels-grafik.webp") ,#132f3f
             background-size: cover
@@ -261,7 +263,10 @@ a
         height: 42px
     &-figcaption
         &-text
-            height: 100px
+            overflow: hidden
+            //white-space: pre-wrap
+            text-overflow: ellipsis
+            height: 80px
         &-download-button
             border: 2px solid #ffb700
             padding-left: 35px
@@ -293,14 +298,14 @@ a
         background-size: cover
         background-repeat: no-repeat
         z-index: 3
-.question
+.anna
     &::before 
         content: ''
         position: absolute
         left: 0
         top: 15px
-        width: 60px
-        height: calc( 100% - 50px )
+        width: calc(50% - 100px)
+        height: calc( 100% - 60px )
         border: 4px solid #ffb700
         border-right: none
     &::after 
@@ -308,15 +313,22 @@ a
         position: absolute
         right: 0
         top: 15px
-        width: 60px
-        height: calc( 100% - 50px )
+        width: calc(50% - 100px)
+        height: calc( 100% - 60px )
         border: 4px solid #ffb700
         border-left: none
     &-contact
+        position: relative
         &::before
             content: ""
             position: absolute
-            left: -30px
+            left: -18px
+            +media(320)
+                left: -30px
+            +media(1200)
+                left: -18px
+            +media(1400)
+                left: -30px
             top: 10px
             width: 16px
             height: 16px
@@ -325,4 +337,7 @@ a
             background-repeat: no-repeat
     &-main-text
         width: 75%
+
+.anna
+    top: -10px
 @import components/footer
