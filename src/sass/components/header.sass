@@ -76,10 +76,14 @@ div.navbar-nav>a.nav-link:hover
     transition: 0.3s
 .button-yelw-txt-style:hover
     background-color: rgba(255,198,7,0.5) !important
+
 .double_arrow_svg
     width: 30px
     height: 30px
     transform: rotate(90deg)
+    transition: .3s
+    &:hover 
+        transform: rotate(90deg) scale(1.2) translateX(5px)
 .hero-section a 
     width: 100%
     +media(420)

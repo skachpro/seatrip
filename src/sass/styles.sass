@@ -23,6 +23,7 @@ a
     color: #0099ff
     margin-bottom: 15px !important
 .main
+    padding-top: 100px
     margin-bottom: 200px
 @import components/header
 
@@ -80,7 +81,6 @@ a
     &__about
         font-size: .813rem
         color: #999999
-
 .all-plans
     display: flex
     justify-content: center
@@ -88,6 +88,7 @@ a
     padding-top: 20px
     cursor: pointer
     gap: 10px
+    transition: .3s
     &__text
         font-size: .75rem
         text-transform: uppercase
@@ -96,6 +97,9 @@ a
     &__img
         width: 11px
         height: 12px
+    &:hover 
+        transform: scale(1.2)
+        
 .all-plans-row 
     margin-bottom: 75px
 .hr-row
@@ -199,7 +203,11 @@ a
         font-style: 1.125rem
 .user-avatar
     display: inline-block
-
+@keyframes rotate 
+    from
+        transform: rotate(0deg)
+    to 
+        transform: rotate(360deg)
 .trip-card
 
     &-figure
@@ -213,17 +221,28 @@ a
         font-size: 0.813rem
     &-price 
         margin-bottom: 0 !important 
+
+            
     &-buy
         position: relative
-        padding-right: 20px
+        padding: 10px 30px 10px 13px
+        border-radius: 20px
+        border: 1px solid transparent
+        transition: .3s
         &::before
             content: ""
             position: absolute
             width: 12px
             height: 11px
-            right: 0
-            top: 7px
+            right: 10px
+            top: 17px
             background: url("../img/arrow_icon_ylw.png")
+        &:hover
+            border: 1px solid $warning
+            background-color: rgba($warning, 0.1 )
+        &:hover::before
+            animation: rotate 1s 
+
 .dop-info
     
     &-figure
