@@ -299,36 +299,33 @@ a
         background-repeat: no-repeat
         z-index: 3
 .anna
+    top: -10px
+    left: 0
     &::before 
         content: ''
         position: absolute
-        left: 0
+        left: 12px
         top: 15px
-        width: calc(50% - 100px)
+        width: calc(50% - 112px)
         height: calc( 100% - 60px )
         border: 4px solid #ffb700
         border-right: none
     &::after 
         content: ''
         position: absolute
-        right: 0
+        right: 12px
         top: 15px
-        width: calc(50% - 100px)
+        width: calc(50% - 112px)
         height: calc( 100% - 60px )
         border: 4px solid #ffb700
         border-left: none
     &-contact
         position: relative
+        padding-left: 30px
         &::before
             content: ""
             position: absolute
-            left: -18px
-            +media(320)
-                left: -30px
-            +media(1200)
-                left: -18px
-            +media(1400)
-                left: -30px
+            left: 0px
             top: 10px
             width: 16px
             height: 16px
@@ -338,6 +335,4 @@ a
     &-main-text
         width: 75%
 
-.anna
-    top: -10px
 @import components/footer
